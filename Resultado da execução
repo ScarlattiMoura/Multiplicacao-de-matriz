@@ -1,0 +1,161 @@
+aluno@ci-HP-EliteDesk-705-G1-SFF:~/Documentos/src$ cd ~/Documentos/src
+gcc -O2 -Wall -Wextra -pthread *.c -o matriz_exe
+aluno@ci-HP-EliteDesk-705-G1-SFF:~/Documentos/src$ gcc -O2 -Wall -Wextra -pthread *.c -o matriz_exe
+aluno@ci-HP-EliteDesk-705-G1-SFF:~/Documentos/src$ ls -la
+total 48
+drwxrwxr-x 2 aluno aluno  4096 jun  3 11:37 .
+drwxr-xr-x 3 aluno aluno  4096 jun  3 10:43 ..
+-rw-rw-r-- 1 aluno aluno  1510 jun  3 11:35 concorrente.c
+-rw-rw-r-- 1 aluno aluno   348 jun  3 11:34 concorrente.h
+-rw-rw-r-- 1 aluno aluno  3461 jun  3 11:36 Main.c
+-rwxrwxr-x 1 aluno aluno 16896 jun  3 11:37 matriz_exe
+-rw-rw-r-- 1 aluno aluno   773 jun  3 11:35 sequencial.c
+-rw-rw-r-- 1 aluno aluno   265 jun  3 11:35 sequencial.h
+aluno@ci-HP-EliteDesk-705-G1-SFF:~/Documentos/src$ gcc -O2 -Wall -Wextra -pthread *.c -o matriz_exe
+aluno@ci-HP-EliteDesk-705-G1-SFF:~/Documentos/src$ ./matriz_exe 4
+=== Multiplicacao de Matrizes (P1) ===
+Dimensao da matriz: 1000 x 1000
+Numero de threads: 4
+
+Preenchendo matrizes...
+
+--- Execucao Sequencial ---
+  Execucao 1: 3.5640 segundos
+  Execucao 2: 3.8666 segundos
+  Execucao 3: 3.5165 segundos
+  Execucao 4: 3.5033 segundos
+  Execucao 5: 3.5055 segundos
+Tempo medio (sequencial): 3.5980 segundos
+
+--- Execucao Concorrente (4 threads) ---
+  Execucao 1: 2.7668 segundos
+  Execucao 2: 2.7601 segundos
+  Execucao 3: 2.7665 segundos
+  Execucao 4: 2.7709 segundos
+  Execucao 5: 2.7666 segundos
+Tempo medio (concorrente): 2.7660 segundos
+
+--- Verificacao de Corretude ---
+OK: Matrizes resultado sao iguais (dentro da tolerancia de 1.0e-06)
+
+--- Speedup ---
+Speedup (T_seq / T_par) = 3.5980 / 2.7660 = 1.30x
+aluno@ci-HP-EliteDesk-705-G1-SFF:~/Documentos/src$ # Teste com 1 thread (equivalente ao sequencial)
+./matriz_exe 1
+
+# Teste com 2 threads
+./matriz_exe 2
+
+# Teste com 4 threads
+./matriz_exe 4
+
+# Teste com 8 threads (se seu CPU suportar)
+./matriz_exe 8
+=== Multiplicacao de Matrizes (P1) ===
+Dimensao da matriz: 1000 x 1000
+Numero de threads: 1
+
+Preenchendo matrizes...
+
+--- Execucao Sequencial ---
+  Execucao 1: 3.5743 segundos
+  Execucao 2: 3.6907 segundos
+  Execucao 3: 3.6944 segundos
+  Execucao 4: 3.6137 segundos
+  Execucao 5: 3.8796 segundos
+Tempo medio (sequencial): 3.7196 segundos
+
+--- Execucao Concorrente (1 threads) ---
+  Execucao 1: 4.1701 segundos
+  Execucao 2: 4.0671 segundos
+  Execucao 3: 4.1644 segundos
+  Execucao 4: 4.1757 segundos
+  Execucao 5: 4.0714 segundos
+Tempo medio (concorrente): 4.1196 segundos
+
+--- Verificacao de Corretude ---
+OK: Matrizes resultado sao iguais (dentro da tolerancia de 1.0e-06)
+
+--- Speedup ---
+Speedup (T_seq / T_par) = 3.7196 / 4.1196 = 0.90x
+=== Multiplicacao de Matrizes (P1) ===
+Dimensao da matriz: 1000 x 1000
+Numero de threads: 2
+
+Preenchendo matrizes...
+
+--- Execucao Sequencial ---
+  Execucao 1: 3.8114 segundos
+  Execucao 2: 3.6802 segundos
+  Execucao 3: 3.8415 segundos
+  Execucao 4: 3.6325 segundos
+  Execucao 5: 3.6137 segundos
+Tempo medio (sequencial): 3.6920 segundos
+
+--- Execucao Concorrente (2 threads) ---
+  Execucao 1: 2.4089 segundos
+  Execucao 2: 1.9736 segundos
+  Execucao 3: 2.0048 segundos
+  Execucao 4: 2.0056 segundos
+  Execucao 5: 1.9790 segundos
+Tempo medio (concorrente): 1.9907 segundos
+
+--- Verificacao de Corretude ---
+OK: Matrizes resultado sao iguais (dentro da tolerancia de 1.0e-06)
+
+--- Speedup ---
+Speedup (T_seq / T_par) = 3.6920 / 1.9907 = 1.85x
+=== Multiplicacao de Matrizes (P1) ===
+Dimensao da matriz: 1000 x 1000
+Numero de threads: 4
+
+Preenchendo matrizes...
+
+--- Execucao Sequencial ---
+  Execucao 1: 4.0354 segundos
+  Execucao 2: 3.7513 segundos
+  Execucao 3: 3.9194 segundos
+  Execucao 4: 3.9200 segundos
+  Execucao 5: 3.8202 segundos
+Tempo medio (sequencial): 3.8527 segundos
+
+--- Execucao Concorrente (4 threads) ---
+  Execucao 1: 2.7180 segundos
+  Execucao 2: 2.8026 segundos
+  Execucao 3: 2.7409 segundos
+  Execucao 4: 2.7935 segundos
+  Execucao 5: 2.7391 segundos
+Tempo medio (concorrente): 2.7691 segundos
+
+--- Verificacao de Corretude ---
+OK: Matrizes resultado sao iguais (dentro da tolerancia de 1.0e-06)
+
+--- Speedup ---
+Speedup (T_seq / T_par) = 3.8527 / 2.7691 = 1.39x
+=== Multiplicacao de Matrizes (P1) ===
+Dimensao da matriz: 1000 x 1000
+Numero de threads: 8
+
+Preenchendo matrizes...
+
+--- Execucao Sequencial ---
+  Execucao 1: 3.7502 segundos
+  Execucao 2: 3.6910 segundos
+  Execucao 3: 3.6594 segundos
+  Execucao 4: 3.7854 segundos
+  Execucao 5: 3.7298 segundos
+Tempo medio (sequencial): 3.7164 segundos
+
+--- Execucao Concorrente (8 threads) ---
+  Execucao 1: 2.7753 segundos
+  Execucao 2: 2.7581 segundos
+  Execucao 3: 2.7673 segundos
+  Execucao 4: 2.7109 segundos
+  Execucao 5: 2.7769 segundos
+Tempo medio (concorrente): 2.7533 segundos
+
+--- Verificacao de Corretude ---
+OK: Matrizes resultado sao iguais (dentro da tolerancia de 1.0e-06)
+
+--- Speedup ---
+Speedup (T_seq / T_par) = 3.7164 / 2.7533 = 1.35x
