@@ -3,18 +3,30 @@
 ## 1. Identificação
 * **Nome:** Scarlatti Bervely Livia Sousa Medeiros de Moura
 * **Matrícula:** 20240037700
+* **Problema escolhido:** P1 - Multiplicação de matrizes grandes
 
 ---
 
-## 2. Problema Escolhido e Descrição
-**P1 — Multiplicação de matrizes grandes (Padrão: mapa por linhas)**
-O problema consiste em calcular o produto de duas matrizes quadradas de números reais ($C = A \times B$) de dimensões $1200 \times 1200$. A estratégia concorrente adota uma decomposição de domínio baseada em fatiamento de linhas da matriz resultante $C$. Cada thread recebe um intervalo exclusivo de linhas consecutivas para computar, garantindo acessos de escrita totalmente disjuntos em memória, o que elimina a necessidade de sincronização via exclusão mútua (*mutexes*) ou operações de *merge* posteriores.
+## 2. Descrição
+Este projeto implementa a multiplicação de matrizes quadradas (n x n) nas versões sequencial e concorrente com pthreads. 
+A versão paralela divide as linhas da matriz resultado entre as threads, onde cada thread calcula um bloco contínuo de linhas,
+garantindo escrita em posições disjuntas sem necessidade de sincronização.
 
 ---
 
 ## 3. Instruções de Compilação e Execução
 
-### Compilação via CMake (Máquinas do Laboratório)
-Na raiz do projeto, execute:
-```bash
-cmake -B build && cmake --build build
+## Compilação e Execução
+
+### Com CMake (recomendado)
+
+mkdir -p build
+cd build
+cmake ..
+make
+./matriz_exe [num_threads]
+
+### Com GCC
+``bash
+gcc -O2 -Wall -Wextra -pthread src/*.c -o matriz_exe
+./matriz_exe [num_threads]
