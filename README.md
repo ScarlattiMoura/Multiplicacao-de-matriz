@@ -1,8 +1,6 @@
 # Relatório: Trabalho Prático 1 - Programação Concorrente
 
 ## 1. Identificação
-* **Nome:** Scarlatti Bervely Livia Sousa Medeiros de Moura
-* **Matrícula:** 20240037700
 * **Problema escolhido:** P1 - Multiplicação de matrizes grandes
 
 ---
